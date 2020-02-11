@@ -19,7 +19,7 @@ export class PokemonSearch extends Component<User, SearchState> {
       name: '',
       numberOfAbilities: 0,
       baseExperience: 0,
-      imageUrl: ''
+      imageUrl: '',
     };
   }
 
@@ -32,12 +32,13 @@ export class PokemonSearch extends Component<User, SearchState> {
         return;
       }
       const data = await res.json();
+      console.log(data);
       this.setState({
         error: false,
         name: data.name,
         numberOfAbilities: data.abilities.length,
         baseExperience: data.base_experience,
-        imageUrl: data.sprites.front_default
+        imageUrl: data.sprites.front_default,
       });
     } catch (e) {
       console.error(e);
